@@ -1,0 +1,10 @@
+.personal-information{
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
