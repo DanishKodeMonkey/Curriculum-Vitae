@@ -46,12 +46,6 @@ function InputField({
             <div className='buttons'>
                 <button
                     type='button'
-                    onClick={onEdit}
-                >
-                    Edit
-                </button>
-                <button
-                    type='button'
                     onClick={() => onRemove(id)}
                 >
                     Remove
@@ -61,14 +55,15 @@ function InputField({
     );
 }
 
-export default function Experience({ type }) {
-    // Initiate state for the experiences.
-    const [experiences, setExperiences] = useState([]);
-
+export default function Experience({
+    type,
+    experienceData,
+    setExperienceData,
+}) {
     const addExperience = () => {
         /* add experience uses the useState setExperience method to update the experiences array */
-        setExperiences([
-            ...experiences,
+        setExperienceData([
+            ...experienceData,
             {
                 id: uuid(),
                 title: '',
@@ -80,12 +75,12 @@ export default function Experience({ type }) {
     };
     /* Remove experience filters the Experiences array for the given id  */
     const removeExperience = (id) => {
-        setExperiences((prevExperiences) =>
+        setExperienceData((prevExperiences) =>
             prevExperiences.filter((experience) => experience.id !== id)
         );
     };
     const handleEdit = (id, field, value) => {
-        setExperiences((prevExperiences) => {
+        setExperienceData((prevExperiences) => {
             return prevExperiences.map((experience) => {
                 if (experience.id === id) {
                     return {
@@ -97,9 +92,9 @@ export default function Experience({ type }) {
             });
         });
     };
-    useEffect(() => {
-        console.log(experiences);
-    }, [experiences]);
+    /*     useEffect(() => {
+        console.log(experienceData);
+    }, [experienceData]); */
     return (
         <div className='experience-container'>
             <h2>{type} experience:</h2>
@@ -110,7 +105,7 @@ export default function Experience({ type }) {
                 <div className='label'>End date:</div>
                 <div className='label'></div>
             </div>
-            {experiences.map((experience) => (
+            {experienceData.map((experience) => (
                 <InputField
                     key={experience.id}
                     title={experience.title}

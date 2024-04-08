@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../styles/PersonalInformation.css';
 
 function InputField({ label, id, type, value, onChange }) {
@@ -15,54 +14,43 @@ function InputField({ label, id, type, value, onChange }) {
     );
 }
 
-export default function PersonalInformation() {
-    const [person, setPerson] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-    });
-
+export default function PersonalInformation({ personData, setPersonData }) {
     const handleInputChange = (e, field) => {
-        const updatedInfo = { ...person, [field]: e.target.value };
-        setPerson(updatedInfo);
-    };
-
-    const handleSubmit = () => {
-        console.log('Personal information submitted: ', person);
+        const updatedInfo = { ...personData, [field]: e.target.value };
+        setPersonData(updatedInfo);
     };
 
     return (
         <div className='personal-information'>
+            <h2>Contact information:</h2>
             <InputField
                 label='First name:'
                 id='firstName'
                 type='text'
-                value={person.firstName}
+                value={personData.firstName || ''}
                 onChange={(e) => handleInputChange(e, 'firstName')}
             />
             <InputField
                 label='Last name: '
                 id='lastName'
                 type='text'
-                value={person.lastName}
+                value={personData.lastName || ''}
                 onChange={(e) => handleInputChange(e, 'lastName')}
             />
             <InputField
                 label='Email: '
                 id='email'
                 type='email'
-                value={person.email}
+                value={personData.email || ''}
                 onChange={(e) => handleInputChange(e, 'email')}
             />
             <InputField
                 label='Phone: '
                 id='phoneNumber'
                 type='tel'
-                value={person.phoneNumber}
+                value={personData.phoneNumber || ''}
                 onChange={(e) => handleInputChange(e, 'phoneNumber')}
             />
-            <button onClick={handleSubmit}>Submit</button>
         </div>
     );
 }
