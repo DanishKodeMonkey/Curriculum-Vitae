@@ -15,13 +15,9 @@ function App() {
             </section>
             <section>
                 <Experience type='Work' />
-
-                {/* COMPONENT EXPERIENCE (Work) HERE */}
             </section>
             <section>
                 <Experience type='Educational' />
-
-                {/* COMPONENT EXPERIENCE (education) HERE */}
             </section>
         </form>
     );

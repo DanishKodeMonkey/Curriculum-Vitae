@@ -1,37 +1,61 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import '../styles/Experience.css';
 
-function InputField({ onEdit, onRemove }) {
+function InputField({
+    id,
+    title,
+    description,
+    startDate,
+    endDate,
+    onEdit,
+    onRemove,
+}) {
     return (
         <div className='input-field'>
             <input
                 type='text'
                 id='title'
-                required
+                value={title}
+                onChange={(e) => onEdit('title', e.target.value)}
                 maxLength={20}
             />
 
             <input
                 type='text'
                 id='description'
-                required
+                value={description}
+                onChange={(e) => onEdit('description', e.target.value)}
                 maxLength={50}
             />
 
             <input
                 type='date'
                 id='startDate'
-                required
+                value={startDate}
+                onChange={(e) => onEdit('startDate', e.target.value)}
             />
 
             <input
                 type='date'
                 id='endDate'
+                value={endDate}
+                onChange={(e) => onEdit('endDate', e.target.value)}
             />
 
             <div className='buttons'>
-                <button onClick={onEdit}>Edit</button>
-                <button onClick={onRemove}>Remove</button>
+                <button
+                    type='button'
+                    onClick={onEdit}
+                >
+                    Edit
+                </button>
+                <button
+                    type='button'
+                    onClick={() => onRemove(id)}
+                >
+                    Remove
+                </button>
             </div>
         </div>
     );
@@ -43,12 +67,39 @@ export default function Experience({ type }) {
 
     const addExperience = () => {
         /* add experience uses the useState setExperience method to update the experiences array */
-        setExperiences([...experiences, {}]);
+        setExperiences([
+            ...experiences,
+            {
+                id: uuid(),
+                title: '',
+                description: '',
+                startDate: '',
+                endDate: '',
+            },
+        ]);
     };
-    /* Remove experience filters the Experiences array for the given index  */
-    const removeExperience = (index) => {
-        setExperiences(experiences.filter((i) => i !== index));
+    /* Remove experience filters the Experiences array for the given id  */
+    const removeExperience = (id) => {
+        setExperiences((prevExperiences) =>
+            prevExperiences.filter((experience) => experience.id !== id)
+        );
     };
+    const handleEdit = (id, field, value) => {
+        setExperiences((prevExperiences) => {
+            return prevExperiences.map((experience) => {
+                if (experience.id === id) {
+                    return {
+                        ...experience,
+                        [field]: value,
+                    };
+                }
+                return experience;
+            });
+        });
+    };
+    useEffect(() => {
+        console.log(experiences);
+    }, [experiences]);
     return (
         <div className='experience-container'>
             <h2>{type} experience:</h2>
@@ -59,14 +110,25 @@ export default function Experience({ type }) {
                 <div className='label'>End date:</div>
                 <div className='label'></div>
             </div>
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
                 <InputField
-                    key={index}
-                    onEdit={() => console.log('Edit click on row: ', index)} // Edit field(placeholder)
-                    onRemove={() => removeExperience(index)} // Remove field
+                    key={experience.id}
+                    title={experience.title}
+                    description={experience.description}
+                    startDate={experience.startDate}
+                    endDate={experience.endDate}
+                    onEdit={(field, value) =>
+                        handleEdit(experience.id, field, value)
+                    } // Edit field(placeholder)
+                    onRemove={() => removeExperience(experience.id)} // Remove field
                 />
             ))}
-            <button onClick={addExperience}>Add {type} experience</button>
+            <button
+                type='button'
+                onClick={addExperience}
+            >
+                Add {type} experience
+            </button>
         </div>
     );
 }
