@@ -15,7 +15,7 @@
 }
 
 #root{
-  width: 80%;
+  width: 100%;
 }
 a {
   font-weight: 500;
@@ -31,7 +31,6 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

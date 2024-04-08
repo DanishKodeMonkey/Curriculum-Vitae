@@ -1,5 +1,6 @@
 import Experience from './components/Experience.jsx';
 import PersonalInformation from './components/PersonalInfo.jsx';
+import Footer from './components/Footer.jsx';
 import { useEffect, useState } from 'react';
 import './styles/App.css';
 function App() {
@@ -30,40 +31,53 @@ function App() {
     };
 
     return (
-        <form
-            action=''
-            id='CV'
-        >
-            <h1>Curriculum Vitae</h1>
-            {/* save button */}
-            <button
-                type='button'
-                className='save-button'
-                onClick={handleSave}
-            >
-                Save
-            </button>
-            <section>
-                <PersonalInformation
-                    personData={personData}
-                    setPersonData={setPersonData}
-                />
-            </section>
-            <section>
-                <Experience
-                    type='Work'
-                    experienceData={workExperienceData}
-                    setExperienceData={setWorkExperienceData}
-                />
-            </section>
-            <section>
-                <Experience
-                    type='Educational'
-                    experienceData={EducExperienceData}
-                    setExperienceData={setEducExperienceData}
-                />
-            </section>
-        </form>
+        <div className='app-container'>
+            <header>
+                <h1>Curriculum Vitae</h1>
+                <h5>
+                    Note: This is a sample project, no information is stored
+                    anywhere except for your browsers local storage
+                </h5>
+            </header>
+            <main>
+                <form
+                    action=''
+                    id='CV'
+                >
+                    {/* save button */}
+                    <button
+                        type='button'
+                        className='save-button'
+                        onClick={handleSave}
+                    >
+                        Save
+                    </button>
+                    <section>
+                        <PersonalInformation
+                            personData={personData}
+                            setPersonData={setPersonData}
+                        />
+                    </section>
+                    <section>
+                        <Experience
+                            type='Work'
+                            experienceData={workExperienceData}
+                            setExperienceData={setWorkExperienceData}
+                        />
+                    </section>
+                    <section>
+                        <Experience
+                            type='Educational'
+                            experienceData={EducExperienceData}
+                            setExperienceData={setEducExperienceData}
+                        />
+                    </section>
+                </form>
+            </main>
+            <footer>
+                <Footer />
+            </footer>
+        </div>
     );
 }
 
