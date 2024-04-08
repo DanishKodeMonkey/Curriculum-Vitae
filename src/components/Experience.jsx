@@ -19,18 +19,20 @@ function InputField({ onEdit, onRemove }) {
             />
 
             <input
-                type='datetime-local'
+                type='date'
                 id='startDate'
                 required
             />
 
             <input
-                type='datetime-local'
+                type='date'
                 id='endDate'
             />
 
-            <button onClick={onEdit}>Edit</button>
-            <button onClick={onRemove}>Remove</button>
+            <div className='buttons'>
+                <button onClick={onEdit}>Edit</button>
+                <button onClick={onRemove}>Remove</button>
+            </div>
         </div>
     );
 }
@@ -55,7 +57,6 @@ export default function Experience({ type }) {
                 <div className='label'>Description:</div>
                 <div className='label'>Start date:</div>
                 <div className='label'>End date:</div>
-                <div className='label'></div>
                 <div className='label'></div>
             </div>
             {experiences.map((experience, index) => (

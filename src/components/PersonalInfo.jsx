@@ -3,7 +3,7 @@ import '../styles/PersonalInformation.css';
 
 function InputField({ label, id, type, value, onChange }) {
     return (
-        <div className='input-field'>
+        <div className='input-field-contact'>
             <label htmlFor={id}>{label}</label>
             <input
                 id={id}

@@ -3,7 +3,7 @@
     grid-template: 1fr 1fr / 1fr 1fr;
 }
 
-.input-field{
+.input-field-contact{
     display: flex;
     flex-direction: column;
     text-align: center;
