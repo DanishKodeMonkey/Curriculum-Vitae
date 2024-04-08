@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './PersonalInformation.css';
+import '../styles/PersonalInformation.css';
 
 function InputField({ label, id, type, value, onChange }) {
     return (

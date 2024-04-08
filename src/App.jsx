@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Experience from './components/Experience.jsx';
+import PersonalInformation from './components/PersonalInfo.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <form
+            action=''
+            id='CV'
+        >
+            <h1>Curriculum Vitae</h1>
+            <section>
+                <h2>Contact information:</h2>
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+                <PersonalInformation />
+            </section>
+            <section>
+                <Experience type='Work' />
+
+                {/* COMPONENT EXPERIENCE (Work) HERE */}
+            </section>
+            <section>
+                <Experience type='Educational' />
+
+                {/* COMPONENT EXPERIENCE (education) HERE */}
+            </section>
+        </form>
+    );
 }
 
-export default App
+export default App;
