@@ -15,7 +15,7 @@ padding: 20px
 
 .input-field{
     display: grid;
-    grid-template-columns: 2fr 4fr 1fr 1fr 1.2fr;
+    grid-template-columns: 2fr 4fr 1fr 1fr .5fr;
     gap: 10px;
     align-items: center;
 
@@ -29,9 +29,14 @@ padding: 20px
 }
 .input-field button{
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+}
+.input-field button:hover{
+    color: red;
+    box-shadow: 0 0 5px red;
 }
 
 .label{
