@@ -22,6 +22,7 @@ padding: 20px
 }
 
 .input-field input, .input-field button{
+    width: 98%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -42,3 +43,42 @@ padding: 20px
 .label{
     text-align: center;
 }
+.mobile-label{
+    display: none;
+}
+@media screen and (max-width:500px){
+
+    .experience-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding:0;;
+    }
+    .cross-bar{
+        display: none;
+    }
+    .input-field{
+        display: grid;
+        grid-template: 1fr 1fr 1fr /1fr 1fr;
+        border-bottom: 2px dashed #ccc;
+        margin-bottom: 5px;
+        width: 90%;
+ 
+    }
+    .buttons{
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+        >button{
+            width: 50%;
+        }
+    }
+    .mobile-label{
+        display: inline;
+    }
+
+    input{
+        width: 90%;
+    }
+  }

@@ -1,0 +1,7 @@
+@media screen and (max-width:500px){
+    footer{
+        p{
+            margin: 0;
+        }
+    }
+}

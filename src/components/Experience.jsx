@@ -12,35 +12,67 @@ function InputField({
 }) {
     return (
         <div className='input-field'>
-            <input
-                type='text'
-                id='title'
-                value={title}
-                onChange={(e) => onEdit('title', e.target.value)}
-                maxLength={20}
-            />
+            <div>
+                <label
+                    htmlFor='title'
+                    className='mobile-label'
+                >
+                    Job title:
+                </label>
+                <input
+                    type='text'
+                    id='title'
+                    value={title}
+                    onChange={(e) => onEdit('title', e.target.value)}
+                    maxLength={20}
+                />
+            </div>
 
-            <input
-                type='text'
-                id='description'
-                value={description}
-                onChange={(e) => onEdit('description', e.target.value)}
-                maxLength={50}
-            />
+            <div>
+                <label
+                    htmlFor='description'
+                    className='mobile-label'
+                >
+                    Description:
+                </label>
+                <input
+                    type='text'
+                    id='description'
+                    value={description}
+                    onChange={(e) => onEdit('description', e.target.value)}
+                    maxLength={50}
+                />
+            </div>
 
-            <input
-                type='date'
-                id='startDate'
-                value={startDate}
-                onChange={(e) => onEdit('startDate', e.target.value)}
-            />
+            <div>
+                <label
+                    htmlFor='startDate'
+                    className='mobile-label'
+                >
+                    Start date:
+                </label>
+                <input
+                    type='date'
+                    id='startDate'
+                    value={startDate}
+                    onChange={(e) => onEdit('startDate', e.target.value)}
+                />
+            </div>
 
-            <input
-                type='date'
-                id='endDate'
-                value={endDate}
-                onChange={(e) => onEdit('endDate', e.target.value)}
-            />
+            <div>
+                <label
+                    htmlFor='endDate'
+                    className='mobile-label'
+                >
+                    End Date:
+                </label>
+                <input
+                    type='date'
+                    id='endDate'
+                    value={endDate}
+                    onChange={(e) => onEdit('endDate', e.target.value)}
+                />
+            </div>
 
             <div className='buttons'>
                 <button

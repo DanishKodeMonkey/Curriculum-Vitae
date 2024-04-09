@@ -1,3 +1,4 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -59,6 +60,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media screen and (max-width:500px){
+  .app-container{
+    width: 100%;
+  }
+  .personal-information{
+    margin:0;
+    padding:0;
+  }
+
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

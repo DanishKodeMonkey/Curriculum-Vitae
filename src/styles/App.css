@@ -1,29 +1,24 @@
 body, html{
-    height: 100%;
     margin: 0;
+    height: 100%;
 }
 
 .app-container{
     display:flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 header{
-
-    top: 0;
     width: 100%;
     background-color: #333;
     color: white;
     padding:10px
 }
 main{
-
-max-height: 50%;
-overflow-y: auto;
+flex: 1;
 }
 footer{
-    flex-shrink: 0;
     position: sticky;
     bottom: 0;
     width: 100%;
@@ -31,5 +26,12 @@ footer{
     color:white;
 }
 .save-button{
-    font-size: 2vw;
+    font-size: 100%;
+}
+
+
+@media screen and (max-width: 500px){
+    footer{
+        position: static;
+    }
 }

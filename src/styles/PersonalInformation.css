@@ -17,3 +17,12 @@ h2{
 .input-field-contact input{
     padding: 5px;
 }
+
+@media screen and (max-width:500px){
+
+    .personal-information{
+      margin:0;
+      padding:0;
+      width: 100%;
+    }
+  }

@@ -74,9 +74,7 @@ function App() {
                     </section>
                 </form>
             </main>
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 }
